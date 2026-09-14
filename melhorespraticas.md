@@ -228,6 +228,11 @@ Cloneado temporariamente o repositório (não instalado como plugin — mesma li
 - **Popup de orçamento sem `role="dialog"`/`aria-modal`** — o menu mobile já tinha, o popup não. Corrigido.
 - Conferido e já estava OK: alt text em imagens, aria-label em todos os botões de ícone, labels associados aos campos do formulário, viewport meta, sem scroll horizontal.
 
+### "Campo Grande" removido do marketing (2026-09-14)
+Campo Grande é um bairro pequeno dentro de Santo Amaro (zona sul de SP) — muito específico pra usar como identidade de marca/SEO. Removido de título, meta description, keywords, Open Graph, Twitter Card, texto do hero, seção "Áreas atendidas" e parágrafo do rodapé — tudo agora fala apenas "São Paulo". Mantido **apenas** no endereço físico real (rodapé + link do Google Maps + `streetAddress` do schema.org), porque ali ele cumpre função de localização, não de marca.
+De brinde, corrigi um detalhe técnico do schema.org: `addressLocality` estava como "Campo Grande" (errado — é bairro, não cidade); o correto pro Brasil é a cidade no `addressLocality` ("São Paulo") e o bairro dentro do `streetAddress`. Corrigido.
+- [ ] **Sugestão não aplicada, avaliar depois**: como Campo Grande é bairro de Santo Amaro (região bem mais conhecida/buscada), pode valer a pena usar "Santo Amaro" como palavra-chave de SEO local em vez do nome do bairro pequeno — só não apliquei porque não foi pedido explicitamente.
+
 ### Google Analytics 4 + rastreamento de WhatsApp (2026-09-14)
 Instalado GA4 (ID `G-26WPHC97KE`) no `<head>`. Todos os 7 pontos de contato de WhatsApp do site disparam um evento `whatsapp_click` com dois parâmetros: `wa_local` (onde foi clicado: `nav`, `menu_mobile`, `hero`, `servicos_pragas`, `servicos_desentupimento`, `cta_final`, `flutuante`, `formulario_orcamento`) e `wa_tipo` (mensagem enviada: orçamento/especialista/urgente/formulário). Isso permite ver no painel do GA4 qual botão específico está convertendo mais, não só "quantos cliques no total".
 - [ ] **Pendente no GA4 (o usuário precisa fazer, não é código)**: marcar o evento `whatsapp_click` como "evento-chave" (conversão) em Administrador → Eventos, pra aparecer nos relatórios de conversão. Leva ~24-48h pra popular dados suficientes.
