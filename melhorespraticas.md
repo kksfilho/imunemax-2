@@ -228,6 +228,10 @@ Cloneado temporariamente o repositório (não instalado como plugin — mesma li
 - **Popup de orçamento sem `role="dialog"`/`aria-modal`** — o menu mobile já tinha, o popup não. Corrigido.
 - Conferido e já estava OK: alt text em imagens, aria-label em todos os botões de ícone, labels associados aos campos do formulário, viewport meta, sem scroll horizontal.
 
+### Google Analytics 4 + rastreamento de WhatsApp (2026-09-14)
+Instalado GA4 (ID `G-26WPHC97KE`) no `<head>`. Todos os 7 pontos de contato de WhatsApp do site disparam um evento `whatsapp_click` com dois parâmetros: `wa_local` (onde foi clicado: `nav`, `menu_mobile`, `hero`, `servicos_pragas`, `servicos_desentupimento`, `cta_final`, `flutuante`, `formulario_orcamento`) e `wa_tipo` (mensagem enviada: orçamento/especialista/urgente/formulário). Isso permite ver no painel do GA4 qual botão específico está convertendo mais, não só "quantos cliques no total".
+- [ ] **Pendente no GA4 (o usuário precisa fazer, não é código)**: marcar o evento `whatsapp_click` como "evento-chave" (conversão) em Administrador → Eventos, pra aparecer nos relatórios de conversão. Leva ~24-48h pra popular dados suficientes.
+
 ### CNPJ adicionado (2026-09-14)
 CNPJ **33.131.093/0001-42** informado pelo cliente. Adicionado no rodapé (visível, ao lado do copyright) e no schema.org LocalBusiness (`taxID`).
 
