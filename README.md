@@ -1,6 +1,6 @@
 # Imunemax — Site Estático
 
-**Stack:** HTML + CSS + JS (single file) · Deploy via GitHub → Hostinger Git
+**Stack:** HTML + CSS + JS (arquivo único) · Deploy via GitHub → Hostinger Git
 
 ---
 
@@ -8,32 +8,33 @@
 
 ```
 /
-├── index.html              ← renomeie imunemax_v4.html para este nome
+├── index.html              ← site oficial
+├── DESIGN.md               ← sistema de design do site (cores, tipografia, componentes)
+├── melhorespraticas.md     ← base de decisões do projeto (pesquisa de concorrência, plano de ação, histórico)
 ├── README.md
+├── robots.txt
+├── sitemap.xml
 └── assets/
     └── img/
-        ├── imunemax-logo.png       ← logo principal (PNG transparente, ~160×52px)
-        ├── imunemax-hero.jpg       ← foto hero coluna direita (JPG, ~800×600px)
-        ├── imunemax-og.jpg         ← imagem para WhatsApp/redes (JPG, 1200×630px)
-        ├── favicon-32.png          ← favicon 32×32px
-        ├── favicon-16.png          ← favicon 16×16px
-        └── apple-touch-icon.png    ← ícone iOS 180×180px
+        ├── imunemax-logo.png
+        ├── imunemax-hero.jpg      ← não usado no site atual (mantido por compatibilidade)
+        ├── imunemax-og.jpg        ← imagem de preview WhatsApp/redes (1200×630px)
+        ├── favicon-32.png
+        ├── favicon-16.png
+        └── apple-touch-icon.png
 ```
 
 ---
 
-## Como subir para o GitHub
+## Como atualizar o GitHub
 
 ```bash
-# 1. Na pasta do projeto:
-git init
 git add .
-git commit -m "feat: imunemax_v4 — SEO completo, Schema.org, imagens locais"
-git remote add origin https://github.com/SEU_USUARIO/imunemax.git
-git push -u origin main
+git commit -m "sua mensagem"
+git push
 ```
 
-## Como conectar ao Hostinger
+## Como conectar ao Hostinger (primeira vez)
 
 1. Painel Hostinger → **Hospedagem** → **Git**
 2. Conecte o repositório GitHub `imunemax`
@@ -42,36 +43,25 @@ git push -u origin main
 
 A partir daí: `git push` → site atualizado em segundos.
 
----
-
-## Imagens — o que preparar
-
-| Arquivo | Dimensão | Formato | Uso |
-|---------|----------|---------|-----|
-| `imunemax-logo.png` | 320×104px min | PNG transparente | Nav + Footer |
-| `imunemax-hero.jpg` | 800×600px | JPG (qualidade 85) | Coluna direita hero |
-| `imunemax-og.jpg` | 1200×630px | JPG (qualidade 85) | WhatsApp/Facebook preview |
-| `favicon-32.png` | 32×32px | PNG | Aba do navegador |
-| `favicon-16.png` | 16×16px | PNG | Aba do navegador |
-| `apple-touch-icon.png` | 180×180px | PNG | iOS homescreen |
+**Importante:** ativar o deploy automático no Hostinger substitui o conteúdo atual de `/public_html` pelo conteúdo deste repositório. Se já existir um site publicado nesse diretório, ele será sobrescrito.
 
 ---
 
-## SEO implementado na v4
+## SEO implementado
 
-- ✅ `<title>` otimizado com palavras-chave + localização
-- ✅ `<meta description>` com CTA e telefone
-- ✅ Open Graph (Facebook, WhatsApp, LinkedIn)
-- ✅ Twitter Card
-- ✅ Schema.org `LocalBusiness` com endereço, telefone, serviços, área de cobertura
-- ✅ Schema.org `FAQPage` (3 perguntas)
-- ✅ `<link rel="canonical">`
-- ✅ `aria-label` em todas as seções
-- ✅ `role="tablist"` / `role="tabpanel"` nas abas de serviços
-- ✅ `aria-expanded` no hamburger
-- ✅ `loading="lazy"` nas imagens do footer
-- ✅ `loading="eager"` + `preload` no logo e hero
-- ✅ `rel="noopener noreferrer"` em todos os links externos
-- ✅ `<address>` semântico no footer
-- ✅ Links de telefone com `href="tel:"`
-- ✅ Link do endereço abrindo Google Maps
+- ✅ `<title>` e `<meta description>` com palavras-chave, localização e "15 anos de experiência"
+- ✅ Open Graph (Facebook, WhatsApp, LinkedIn) e Twitter Card
+- ✅ Schema.org `LocalBusiness` com endereço, telefone, geo, área de cobertura e catálogo de serviços
+- ✅ Schema.org `FAQPage` com 9 perguntas (sincronizado com o FAQ visível na página)
+- ✅ `<link rel="canonical">`, `robots.txt`, `sitemap.xml`
+- ✅ `theme-color` para navegadores mobile
+- ✅ Hierarquia de headings sem pular nível (H1→H2→H3→H4)
+- ✅ Contraste de cor verificado (WCAG AA) em todos os pares texto/fundo
+- ✅ `prefers-reduced-motion` respeitado
+- ✅ Estado de foco de teclado (`:focus-visible`) visível em todos os elementos interativos
+- ✅ `aria-label`/`role="dialog"` no menu mobile e no popup de orçamento
+- ✅ `rel="noopener noreferrer"` em links externos, `<address>` semântico, links `tel:`
+
+## Sobre o conteúdo
+
+A Imunemax é uma empresa real com **15 anos de experiência** — mas ainda não tem nota/avaliações do Google nem depoimentos organizados digitalmente. O site foi construído para **não inventar** essas informações (ver `melhorespraticas.md`). Pontos ainda pendentes de confirmação com o cliente antes de expandir o conteúdo: se o orçamento é gratuito, formas de pagamento aceitas, horário real de atendimento, e se os links de Instagram/Facebook estão ativos.

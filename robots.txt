@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://imunemaxdedetizadora.com.br/sitemap.xml

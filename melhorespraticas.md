@@ -204,6 +204,30 @@ Atualizado o posicionamento "empresa nova" → **"15 anos de experiência"** nos
 - **Menu do header espremido/quebrando linha** (reportado com print, nas duas versões): a causa era o menu completo (5 links + telefone + botão) não caber na largura da barra — aumentar o espaçamento sozinho pioraria a quebra de linha. Corrigido subindo o ponto em que o menu vira "hambúrguer" de 900px para 1180px de largura, nas duas versões — assim o menu completo só aparece quando há espaço de verdade.
 - **Texto do hero da versao2** com mais impacto: tipografia maior (`clamp(42px,6.6vw,74px)`, peso 700 carregado da Fraunces), manchete reescrita liderando com "15 anos cuidando do seu espaço, de verdade" (credencial real logo de cara, em vez de "Cuidado de verdade com seu espaço"). Removida a repetição de "15 anos" na legenda da foto do hero (estava 3x na mesma dobra — diluía o impacto em vez de reforçar).
 
+### Redesign de menu + hero (2026-09-14)
+Adaptado o padrão de um componente de referência (menu com CTA em pill + overlay mobile em tela cheia; hero com pill de anúncio acima do título) para HTML/CSS puro no `index.html` — **sem** migrar o projeto pra React/Next.js/Tailwind/shadcn (decisão explícita do usuário: só o visual, não a stack).
+- Menu mobile: trocou de "gaveta inferior" para overlay em tela cheia (ESC, clique fora e clique em link fecham).
+- Hero: virou centralizado (era duas colunas com foto). Foto removida do hero (era só a logo repetida, não uma foto de serviço real) e substituída por blobs decorativos. Pill de anúncio "15 anos de experiência em São Paulo · Saiba mais →" acima do título. Título reescrito para "Seu espaço protegido, sua tranquilidade de volta" (a credencial "15 anos" já fica no pill, então o título ficou livre pra carregar a promessa emocional sem repetir o número).
+- Removida uma "wave" divisória entre hero e Diferenciais que era invisível na prática (mesma cor dos dois lados — resquício sem efeito).
+
+### Melhorias de SEO (2026-09-14)
+Usuário pediu para usar o repositório `AgriciDaniel/claude-seo` (plugin de auditoria SEO do Claude Code, 18 agentes). **Não deu para instalar** — instalação de plugin é comando interativo (`/plugin marketplace add` + `/plugin install`), incompatível com esta sessão não-interativa, e o plugin não está no catálogo oficial. Usuário optou por eu aplicar as melhorias diretamente com conhecimento próprio de SEO. Aplicado:
+- **Hierarquia de headings corrigida**: cards que pulavam de H2 direto pra H4/H5 (Diferenciais, Áreas, Sobre, sub-cards de Serviços) agora seguem H2→H3→H4 sem pular nível.
+- **Schema.org restaurado/ampliado**: `geo` (coordenadas) e `areaServed` (São Paulo + Grande São Paulo) tinham se perdido no redesign da versao2 — restaurados. FAQPage schema sincronizado com as 9 perguntas visíveis no site (antes só tinha 4 — Google recomenda schema bater com o conteúdo visível).
+- **`theme-color`** adicionado (cor da marca na barra do navegador mobile).
+- **`robots.txt` e `sitemap.xml` criados** — não existiam no projeto.
+- Confirmado: só 2 `<img>` no site inteiro (logo no nav e no rodapé), resto é SVG inline — ótimo para Core Web Vitals, nada a otimizar aí.
+- [ ] **Pendente**: uma lista de bairros/regiões específicas perto de Campo Grande ajudaria SEO local (a concorrência forte usa isso). Se você tiver essa lista, me passa que eu incluo na seção "Áreas atendidas".
+- [ ] Ainda não foi criado o Google Business Profile da Imunemax — é o maior ganho de SEO local possível (mais importante que qualquer ajuste no código do site) e também resolve o problema da falta de avaliações/nota do Google.
+
+### Revisão UI/UX com nextlevelbuilder/ui-ux-pro-max-skill (2026-09-14)
+Cloneado temporariamente o repositório (não instalado como plugin — mesma limitação de sessão não-interativa) e usado o checklist `ux-guidelines.csv` (119 regras) para revisar o `index.html`. Rodei os 41 itens de severidade alta aplicáveis a Web e conferi contraste de cor (WCAG) de todas as combinações de texto/fundo do site. Encontrados e corrigidos:
+- **2 falhas reais de contraste**: texto branco no verde do WhatsApp (1.98:1, bem abaixo do mínimo de 4.5:1) e a cor `--ink-faint` usada em textos secundários (2.79:1). Ambas escurecidas até passarem de 4.5:1 — eram exatamente o tipo de problema "difícil de ler" que motivou o redesign original.
+- **`prefers-reduced-motion` não era respeitado em lugar nenhum** — adicionado, desativa animações/transições pra quem configura isso no sistema.
+- **Estado de foco de teclado (`:focus-visible`) não existia** — adicionado um contorno visível consistente pra navegação por teclado.
+- **Popup de orçamento sem `role="dialog"`/`aria-modal`** — o menu mobile já tinha, o popup não. Corrigido.
+- Conferido e já estava OK: alt text em imagens, aria-label em todos os botões de ícone, labels associados aos campos do formulário, viewport meta, sem scroll horizontal.
+
 ### Decisão final: versao2 escolhida (2026-09-14)
 O usuário decidiu ficar com o layout da **versao2** (tema "clínico-acolhedor", Fraunces + Nunito Sans). Ações tomadas:
 - `versao2/index.html` → promovido para `index.html` na raiz (site oficial).
