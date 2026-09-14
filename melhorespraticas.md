@@ -228,6 +228,9 @@ Cloneado temporariamente o repositório (não instalado como plugin — mesma li
 - **Popup de orçamento sem `role="dialog"`/`aria-modal`** — o menu mobile já tinha, o popup não. Corrigido.
 - Conferido e já estava OK: alt text em imagens, aria-label em todos os botões de ícone, labels associados aos campos do formulário, viewport meta, sem scroll horizontal.
 
+### CNPJ adicionado (2026-09-14)
+CNPJ **33.131.093/0001-42** informado pelo cliente. Adicionado no rodapé (visível, ao lado do copyright) e no schema.org LocalBusiness (`taxID`).
+
 ### Decisão final: versao2 escolhida (2026-09-14)
 O usuário decidiu ficar com o layout da **versao2** (tema "clínico-acolhedor", Fraunces + Nunito Sans). Ações tomadas:
 - `versao2/index.html` → promovido para `index.html` na raiz (site oficial).
