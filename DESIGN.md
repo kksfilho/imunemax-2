@@ -31,9 +31,9 @@ Regra: `--primary` (petróleo) é a cor de identidade/estrutura; `--lime` é *ex
 
 ## 3. Typography Rules
 
-- **Display:** `Fraunces` (serifada, com curvas suaves e ductos óticos) — pesos 500/600, `font-optical-sizing: auto`. Usada em títulos de seção e headline do hero. Traz o tom "acolhedor" que a Versão 1 (Manrope, geométrica) não tem.
-- **Corpo:** `Nunito Sans` — pesos 400/600/700. Cantos levemente arredondados nas formas das letras, reforça a atmosfera "clínico-acolhedor" mesmo no texto corrido.
-- Hierarquia: H1 `clamp(34px,5vw,54px)`, H2 `clamp(26px,3.4vw,36px)`, corpo `16px/1.7`, legendas `13px` com `letter-spacing:0.5px`.
+- **Fonte única:** `Satoshi` (Fontshare, via `api.fontshare.com`) — pesos 300/400/500/700/900 + itálicos. Trocada em 2026-09-14 a pedido do cliente, que achou a identidade anterior (Fraunces serifada + Nunito Sans) pouco moderna/chamativa. Satoshi é sans-serif geométrica com range de peso amplo — a variação de peso (não a mistura de famílias) é o que cria hierarquia e "impacto" agora.
+- Display (H1 hero): peso `900` (black), `letter-spacing:-2.5px`. Títulos de seção (H2): peso `900`, `letter-spacing:-0.8px`. Subtítulos/H3/H4: peso `700`. Corpo: peso `400`. Destaques em itálico (ex: `<em>` no hero): peso `500` itálico, para contrastar com o peso 900 ao redor.
+- Hierarquia: H1 `clamp(38px,6vw,68px)`, H2 `clamp(26px,3.4vw,36px)`, corpo `16px/1.7`, legendas `13px` com `letter-spacing:0.5px`.
 - Nunca usar mais de 2 pesos por elemento. Títulos sempre com `text-wrap:balance`.
 
 ## 4. Component Stylings
@@ -83,4 +83,4 @@ Regra: `--primary` (petróleo) é a cor de identidade/estrutura; `--lime` é *ex
 
 Resumo rápido para regenerar componentes desta versão de forma consistente:
 
-> "Site institucional Imunemax, tema clínico-acolhedor: fundo `#F3F6F1`, cards brancos com `border-radius:20px` e sombra difusa verde-petróleo (`rgba(20,82,75,0.18)`), sem bordas duras. Títulos em Fraunces (serifada suave), corpo em Nunito Sans. Botões sempre em pílula (`border-radius:100px`), cor de ação `#7DC400` com texto `#14524B`. Ícones em círculo preenchido `#E3EFEA`, nunca ícones literais de praga. Curvas orgânicas entre seções, nunca linhas retas de divisão. Nunca inventar nota do Google, depoimento ou avaliação — a empresa é nova."
+> "Site institucional Imunemax, tema clínico-acolhedor: fundo `#F3F6F1`, cards brancos com `border-radius:20px` e sombra difusa verde-petróleo (`rgba(20,82,75,0.18)`), sem bordas duras. Tipografia toda em Satoshi (sans-serif), com hierarquia por peso: headline do hero em preto/900, títulos de seção em 900, corpo em 400. Botões sempre em pílula (`border-radius:100px`), cor de ação `#7DC400` com texto `#14524B`. Ícones em círculo preenchido `#E3EFEA`, nunca ícones literais de praga. Curvas orgânicas entre seções, nunca linhas retas de divisão. Nunca inventar nota do Google, depoimento ou avaliação — a Imunemax tem 15 anos de mercado, mas ainda não tem essas informações organizadas digitalmente."

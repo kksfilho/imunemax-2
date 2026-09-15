@@ -250,5 +250,15 @@ O usuário decidiu ficar com o layout da **versao2** (tema "clínico-acolhedor",
 ### Formas de pagamento e horário de atendimento confirmados (2026-09-14)
 Cliente confirmou: pagamento em dinheiro, cartão de crédito, cartão de débito e Pix; atendimento comercial de segunda a sexta, 7h30–18h, com emergências 24h todos os dias. Adicionado como novos itens no FAQ (visível + schema.org FAQPage) e corrigido o `openingHoursSpecification`, que antes dizia (incorretamente) "aberto 24h todos os dias" — agora reflete o horário comercial real, com a emergência 24h explicada à parte no texto.
 
+### Troca de tipografia: Fraunces + Nunito Sans → Satoshi (2026-09-14)
+Cliente não gostou da identidade visual anterior e pediu algo "mais moderno e mais chamativo, com variações de estilo", indicando a fonte **Satoshi** (Fontshare, `fontshare.com/fonts/satoshi`). Trocado o par de fontes (serifada Fraunces + Nunito Sans) por uma fonte única sans-serif geométrica — Satoshi tem range de peso amplo (300 a 900 + itálicos), o que permite criar a hierarquia visual só por variação de peso, sem depender de duas famílias diferentes. Carregada via CDN oficial da Fontshare (`api.fontshare.com`), mesmo padrão de link externo que já era usado com Google Fonts.
+- Headline do hero (H1): peso 900 (black), letter-spacing bem fechado (-2.5px) — o elemento de maior impacto da página.
+- Títulos de seção (H2): peso 900, letter-spacing -0.8px.
+- Subtítulos/H3/H4 e nav: peso 700.
+- Corpo de texto: peso 400.
+- Destaque em itálico no hero (`sua tranquilidade de volta`): peso 500 itálico, para contrastar com o 900 ao redor.
+- `DESIGN.md` atualizado para refletir a nova regra tipográfica (fonte única + hierarquia por peso, não mais par serifada/sans).
+- Testado localmente no navegador antes de publicar — fonte carregando corretamente, contraste e legibilidade mantidos.
+
 ### Bug crítico: botões de WhatsApp não funcionavam no celular (2026-09-14)
 Usuário reportou que "Falar com Especialista" não funcionava no celular. Diagnóstico: os botões "Solicitar Atendimento" (aba Pragas) e "Falar com Especialista" (aba Desentupimento) eram elementos `<button>`, mas o JavaScript define o link de destino via `el.href = waLink(...)` — atributo que só funciona em elementos `<a>`. Em um `<button>`, isso não tem efeito nenhum: o clique disparava o evento do Analytics mas não abria o WhatsApp. Esse bug afetava **todos os navegadores/dispositivos**, não só celular — só não tinha sido notado antes. Corrigido trocando os dois `<button>` por `<a href="#">`, igual aos demais CTAs de WhatsApp do site (que já funcionavam). Commitado e publicado (`4d611c9`).
