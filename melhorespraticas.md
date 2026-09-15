@@ -187,7 +187,7 @@ Primeira versão deste registro dizia que a Imunemax era uma empresa nova — **
 ### Pontos a confirmar com o cliente antes de publicar
 - [ ] Orçamento/visita é gratuito? (nenhum texto do site deve afirmar isso até confirmar — hoje só diz "solicite seu orçamento", sem prometer gratuidade)
 - [x] **Formas de pagamento confirmadas (2026-09-14)**: dinheiro, cartão de crédito, cartão de débito e Pix. Adicionado como pergunta no FAQ (visível + schema.org).
-- [ ] Horário real de atendimento (a Imunemax atende fins de semana? Só emergência 24h ou atendimento programado também?)
+- [x] **Horário confirmado (2026-09-14)**: comercial segunda a sexta, 7h30–18h; emergências 24h todos os dias. Adicionado no FAQ (visível + schema.org) e corrigido o `openingHoursSpecification`, que antes dizia (incorretamente) "aberto 24h todos os dias" — agora reflete o horário comercial real, com a emergência 24h explicada à parte no texto.
 - [ ] Redes sociais: os links @imunemax do Instagram/Facebook (herdados do site antigo) estão ativos de fato?
 - [ ] O e-mail nos dois sites está como `contato@imunimaxdedetizado.com.br` (domínio diferente de `imunemaxdedetizadora.com.br`) — herdado do site antigo, parece inconsistência/typo. Confirmar o e-mail correto antes de publicar.
 
